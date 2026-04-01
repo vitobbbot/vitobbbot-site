@@ -7,43 +7,123 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="hero-banner">
+
+    <!-- Sticky Header -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a class="nav-logo" href="#hero">🌈 同志交友</a>
+            <ul class="nav-links">
+                <li><a href="#features">社群特色</a></li>
+                <li><a href="#activities">多元活動</a></li>
+                <li><a href="#join">立即加入</a></li>
+                <li><a href="#contact">聯絡我們</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <section id="hero" class="hero-banner">
         <img src="banner.jpg" alt="同志交友" class="banner-image">
         <div class="overlay">
             <h1>找到你的另一半</h1>
             <p>探索真實的連結，創造屬於你們的故事。</p>
-            <a href="#" class="button">立即加入</a>
+            <a href="#join" class="button">立即加入</a>
         </div>
-    </header>
+    </section>
 
-    <main class="container">
-        <section class="intro-section">
+    <main>
+
+        <!-- 社群特色 -->
+        <section id="features" class="section container">
             <h2>社群特色</h2>
             <div class="features">
                 <div class="feature-item">
+                    <div class="feature-icon">💬</div>
                     <h3>真誠交友</h3>
                     <p>我們鼓勵用戶展現真實自我，建立深層次的情感連結。</p>
                 </div>
                 <div class="feature-item">
+                    <div class="feature-icon">🔒</div>
                     <h3>安全隱私</h3>
                     <p>嚴格的用戶審核機制與隱私保護，讓您安心尋找對象。</p>
                 </div>
                 <div class="feature-item">
-                    <h3>多元活動</h3>
-                    <p>定期舉辦線上線下活動，拓展您的交友圈。</p>
+                    <div class="feature-icon">🌍</div>
+                    <h3>多元包容</h3>
+                    <p>歡迎所有性別認同與性取向，這裡是你的安全空間。</p>
                 </div>
             </div>
         </section>
 
-        <section class="call-to-action">
-            <h2>準備好開始了嗎？</h2>
-            <p>數千名優質單身人士正在這裡等待與您相遇。</p>
-            <a href="#" class="button primary">免費註冊</a>
+        <!-- 多元活動 -->
+        <section id="activities" class="section section-alt">
+            <div class="container">
+                <h2>多元活動</h2>
+                <div class="features">
+                    <div class="feature-item">
+                        <div class="feature-icon">🎉</div>
+                        <h3>線下聚會</h3>
+                        <p>定期舉辦城市聚會，讓你在輕鬆的氛圍中認識新朋友。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💻</div>
+                        <h3>線上活動</h3>
+                        <p>每週線上主題活動，無論身在何處都能參與。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🛳️</div>
+                        <h3>年度郵輪</h3>
+                        <p>年度同志郵輪之旅，與數百位夥伴共度難忘旅程。</p>
+                    </div>
+                </div>
+            </div>
         </section>
+
+        <!-- 立即加入 -->
+        <section id="join" class="section call-to-action">
+            <div class="container">
+                <h2>準備好開始了嗎？</h2>
+                <p>數千名優質單身人士正在這裡等待與您相遇。</p>
+                <a href="#" class="button primary">免費註冊</a>
+            </div>
+        </section>
+
+        <!-- 聯絡我們 -->
+        <section id="contact" class="section container">
+            <h2>聯絡我們</h2>
+            <p class="contact-text">有任何問題或建議，歡迎透過以下方式聯繫我們：</p>
+            <div class="contact-links">
+                <a href="mailto:hello@example.com" class="button">📧 Email</a>
+                <a href="#" class="button">💬 Telegram</a>
+                <a href="#" class="button">📸 Instagram</a>
+            </div>
+        </section>
+
     </main>
 
     <footer>
         <p>&copy; 2026 同志交友網站. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = document.querySelector('.navbar').offsetHeight;
+                    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Navbar shadow on scroll
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 10);
+        });
+    </script>
+
 </body>
 </html>
